@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cookie</title>
+    <title>cookies actividad</title>
 </head>
 <body>
     <?php
-    setcookie("micoquis","Los datos de la coquis",time()+45);
+    if (isset($_COOKIE["micoquis"])) {
+        echo $_COOKIE["micoquis"]."<br>";
+    }else {
+        echo "Lo siento, usted no ha creado una cookies";
+    }
     ?>
 </body>
 </html>

@@ -9,24 +9,47 @@
 <body>
 
     <header>
-        <h1>Bienvenido a la pagina de Vanessa</h1>
+        <h1>Bienvenido a la página de Vanessa</h1>
     </header>
 
     <nav>
         <ul>
-            <li><a href="">Inicio</a></li>
-            <li><a href="">Acerca de</a></li>
-            <li><a href="">Contacto</a></li>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#acerca">Acerca de</a></li>
+            <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
-    <section>
-        <h2>Contenido Principal</h2>
-        <p>Hola Bienvenido a mi página web.</p>
+    <section id="inicio">
+        <h2>Inicio</h2>
+        <p>Hola, bienvenido a mi página web. Aquí encontrarás información interesante sobre diversos temas.</p>
+    </section>
+
+    <section id="acerca">
+        <h2>Acerca de</h2>
+        <p>Soy Vanessa, una entusiasta de la tecnología y el desarrollo web. Me encanta compartir conocimientos y experiencias.</p>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>¿Quieres ponerte en contacto conmigo? Utiliza el formulario a continuación:</p>
+        <form action="procesar_contacto.php" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <input type="submit" value="Enviar"> <!-- No va a enviar ningun dato y va a aparecer error porque no hice una pagina para conectar -->
+            
+        </form>
     </section>
 
     <footer>
-        <p>Página de Vanessa</p>
+        <p>&copy; 2023 Página de Vanessa</p>
     </footer>
 
 </body>

@@ -1,27 +1,28 @@
 <?php
-$mibusqueda=isset($_GET["buscar"]);
+$mibusqueda = isset($_GET["buscar"]) ? $_GET["buscar"] : null;
 $mipagina=$_SERVER["PHP_SELF"]; 
 function ejecutar_consulta($laconsulta){
    include("conexion.php");
    $consulta= mysqli_query($conexion,"SELECT * FROM productos WHERE producto LIKE '%$laconsulta%'");
-?>
+  ?> 
          <!DOCTYPE html>
          <html lang="en">
          <head>
-         <section>Datos encontrados</section>
+         <section>Datos que encontrados</section>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title></title>
+            <link rel="stylesheet" href="css/busqueda.css">
+            <title>busqueda</title>
          </head>
          <body>
          <?php
-         echo "<table>";
-               echo "<tr><th>ID_PRODUCTO</th>";
-               echo "<th>SECCION</th>";
-               echo "<th>PRODUCTO</th>";
-               echo "<th>ORIGEN</th>";
-               echo "<th>IMPORTADO</th>";
-               echo "<th>PRECIO</th></tr>";
+         echo "<table> ";
+               echo "<tr><th>id_productos</th>";
+               echo "<th>seccion</th>";
+               echo "<th>producto</th>";
+               echo "<th>origen</th>";
+               echo "<th>importado</th>";
+               echo "<th>precio</th></tr>";
 
             while ($fila = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
                echo "<tr>";
@@ -35,7 +36,7 @@ function ejecutar_consulta($laconsulta){
                ?>
          </body>
          </html>
-<?php
+            <?php
 }
 }
 
@@ -44,15 +45,17 @@ if($mibusqueda!=NULL){
 }else 
 {
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>vann</title>
+   <link rel="stylesheet" href="css/busqueda.css">
+   <title>busqueda</title>
 </head>
 <body>
-   <section>Busqueda producto por nombre </section>
+   <section>filtrar por nombre</section>
 
 <form class="form-search" method='get' action="<?php echo $mipagina; ?>">
    <label>Buscar:<input type='text' name= 'buscar'></label>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2023 a las 13:56:01
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Tiempo de generación: 13-12-2023 a las 02:42:41
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -90,6 +90,26 @@ INSERT INTO `datospersonales` (`numeroDocumento`, `nombre`, `apellido`, `edad`) 
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `datos_usuario`
+--
+
+CREATE TABLE `datos_usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `usuario` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `datos_usuario`
+--
+
+INSERT INTO `datos_usuario` (`id_usuario`, `usuario`, `password`) VALUES
+(1, 'vanessagarcia@gmail.', '0812'),
+(2, 'van@gmail.com', '123');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `productos`
 --
 
@@ -107,6 +127,7 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_productos`, `seccion`, `producto`, `origen`, `importado`, `precio`) VALUES
+('', '', '', '', '', 0),
 ('ar01', 'CERÁMICA', 'Tubos', 'China', 'VERDADERO', 1400),
 ('ar02', 'CERÁMICA', 'Plato Decorativo', 'China', 'FALSO', 4500),
 ('ar03', 'CERÁMICA', 'Juego de te', 'China', 'FALSO', 36000),
@@ -117,6 +138,7 @@ INSERT INTO `productos` (`id_productos`, `seccion`, `producto`, `origen`, `impor
 ('ar08', 'CONFECCIÓN', 'Pantalón Señora', 'Marruecos', 'VERDADERO', 138000),
 ('ar09', 'CONFECCIÓN', 'Camisa Caballero', 'España', 'VERDADERO', 57000),
 ('ar10', 'CONFECCIÓN', 'Blusa Sra.', 'China', 'VERDADERO', 62999),
+('ar105', 'juguete', 'gggggg', 'cascara', 'VERDADERO', 1000000),
 ('ar11', 'CONFECCIÓN', 'Cazadora piel', 'Italia', 'VERDADERO', 436000),
 ('ar12', 'CONFECCIÓN', 'Abrigo Caballero', 'Italia', 'VERDADERO', 203000),
 ('ar13', 'CONFECCIÓN', 'Abrigo Sra', 'Marruecos', 'VERDADERO', 300000),
@@ -144,17 +166,34 @@ INSERT INTO `productos` (`id_productos`, `seccion`, `producto`, `origen`, `impor
 ('ar35', 'JUGUETERÍA', 'Muñeca Andadora', 'España', 'VERDADERO', 88000),
 ('ar36', 'JUGUETERÍA', 'Fuerte de soldados', 'Japón', 'FALSO', 120000),
 ('ar37', 'JUGUETERÍA', 'Pistola con sonidos', 'España', 'FALSO', 48000),
-('ar38', 'JUGUETERÍA', 'Pie de lámpara', 'Turquía', 'VERDADERO', 33000);
+('ar38', 'JUGUETERÍA', 'Pie de lámpara', 'Turquía', 'VERDADERO', 33000),
+('ar50', 'JUGUETERIA', 'balon ', 'Brasil', 'VERDADERO', 80000);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `datos_usuario`
+--
+ALTER TABLE `datos_usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_productos`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `datos_usuario`
+--
+ALTER TABLE `datos_usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
